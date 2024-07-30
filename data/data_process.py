@@ -366,11 +366,11 @@ class BaseDataProcess_OOD:
 
 def get_1_clean_data():
     """处理生成ID数据：10%clean"""
-    data_path_list = ["/root/TransferTOD/data/clean"]
+    data_path_list = ["./data/raw_data/clean"]
     ood_index_list = OOD_DATA_INDEX
-    output_data_path = "/root/TransferTOD/experiment/data/fine_tune_1/1_clean"
+    output_data_path = "./data/fine_tune_1/v1"
     belle_data_path = (
-        "/root/TransferTOD/data/belle_data/belle_filtered_950k_train.jsonl"
+        "./data/raw_data/belle_data/belle_filtered_950k_train.jsonl"
     )
     BaseDataProcess_ID(
         belle_data_path=belle_data_path,
@@ -383,11 +383,11 @@ def get_1_clean_data():
 
 def get_2_clean_noise_data():
     """处理生成ID数据：10%clean + noise"""
-    data_path_list = ["/root/TransferTOD/data/clean", "/root/TransferTOD/data/noise"]
+    data_path_list = ["./data/raw_data/clean", "./data/raw_data/noise"]
     ood_index_list = OOD_DATA_INDEX
-    output_data_path = "/root/TransferTOD/experiment/data/fine_tune_1/2_clean_noise"
+    output_data_path = "./data/fine_tune_1/v2"
     belle_data_path = (
-        "/root/TransferTOD/data/belle_data/belle_filtered_950k_train.jsonl"
+        "./data/raw_data/belle_data/belle_filtered_950k_train.jsonl"
     )
     BaseDataProcess_ID(
         belle_data_path=belle_data_path,
@@ -400,11 +400,11 @@ def get_2_clean_noise_data():
 
 def get_3_clean_noise_gpt_data():
     """处理生成ID数据：10%clean_gpt + noise_gpt"""
-    data_path_list = ["/root/TransferTOD/data/clean_gpt", "/root/TransferTOD/data/noise_gpt"]
+    data_path_list = ["./data/raw_data/clean_gpt", "./data/raw_data/noise_gpt"]
     ood_index_list = OOD_DATA_INDEX
-    output_data_path = '/root/TransferTOD/experiment/data/fine_tune_1/3_clean_noise_gpt'
+    output_data_path = './data/fine_tune_1/v3'
     belle_data_path = (
-        "/root/TransferTOD/data/belle_data/belle_filtered_950k_train.jsonl"
+        "./data/raw_data/belle_data/belle_filtered_950k_train.jsonl"
     )
     BaseDataProcess_ID(
         belle_data_path=belle_data_path,
@@ -418,11 +418,11 @@ def get_3_clean_noise_gpt_data():
 
 def get_4_clean_noise_gpt_human_data():
     """处理生成ID数据：10%clean_gpt_human + noise_gpt_human"""
-    data_path_list = ["/root/TransferTOD/data/clean_gpt_human", "/root/TransferTOD/data/noise_gpt_human"]
+    data_path_list = ["./data/raw_data/clean_gpt_human", "./data/raw_data/noise_gpt_human"]
     ood_index_list = OOD_DATA_INDEX
-    output_data_path = '/root/TransferTOD/experiment/data/fine_tune_1/4_clean_noise_gpt_human'
+    output_data_path = './data/fine_tune_1/v4'
     belle_data_path = (
-        "/root/TransferTOD/data/belle_data/belle_filtered_950k_train.jsonl"
+        "./data/raw_data/belle_data/belle_filtered_950k_train.jsonl"
     )
     BaseDataProcess_ID(
         belle_data_path=belle_data_path,
