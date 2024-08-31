@@ -22,9 +22,6 @@ Overall statistics of TransferTOD dataset are as follows:
 >
 > For inference and evaluation with the TransferTOD test set, run `./inference/inference_and_eval.sh`.
 
-Contact Us:
-mingzhang23@m.fudan.edu.cn
-
 ## Citation
 If you find this project useful in your research, please cite:
 ```
@@ -56,3 +53,6 @@ If you find this project useful in your research, please cite:
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 ```
+
+Contact Us:
+mingzhang23@m.fudan.edu.cn
