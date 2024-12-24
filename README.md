@@ -1,6 +1,7 @@
 # TransferTOD
 The code repository of paper "TransferTOD: A Generalizable Chinese Multi-Domain Task-Oriented Dialogue System with Transfer Capabilities"
-The paper has been accepted for EMNLP-2024(main)!
+
+**The paper has been accepted for EMNLP-2024(main)!**
 
 The model TransferTOD-7B can be accessed in https://www.modelscope.cn/models/Mee1ong/TransferTOD-7B
 
