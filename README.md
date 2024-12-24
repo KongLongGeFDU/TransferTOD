@@ -1,9 +1,12 @@
 # TransferTOD
 The code repository of paper "TransferTOD: A Generalizable Chinese Multi-Domain Task-Oriented Dialogue System with Transfer Capabilities"
+The paper has been accepted for EMNLP-2024(main)!
 
 The model TransferTOD-7B can be accessed in https://www.modelscope.cn/models/Mee1ong/TransferTOD-7B
 
 arxiv: https://arxiv.org/abs/2407.21693
+
+aclanthology: https://aclanthology.org/2024.emnlp-main.710.pdf
 
 ## Data Info
 Overall statistics of TransferTOD dataset are as follows:
@@ -27,7 +30,7 @@ For inference and evaluation with the TransferTOD test set, run `./inference/inf
 ## Citation
 If you find this project useful in your research, please cite:
 ```
-@article{DBLP:journals/corr/abs-2407-21693,
+@inproceedings{DBLP:conf/emnlp/ZhangHWLZDSDZYZ24,
   author       = {Ming Zhang and
                   Caishuang Huang and
                   Yilong Wu and
@@ -41,17 +44,20 @@ If you find this project useful in your research, please cite:
                   Qi Zhang and
                   Tao Gui and
                   Xuanjing Huang},
+  editor       = {Yaser Al{-}Onaizan and
+                  Mohit Bansal and
+                  Yun{-}Nung Chen},
   title        = {TransferTOD: {A} Generalizable Chinese Multi-Domain Task-Oriented
                   Dialogue System with Transfer Capabilities},
-  journal      = {CoRR},
-  volume       = {abs/2407.21693},
+  booktitle    = {Proceedings of the 2024 Conference on Empirical Methods in Natural
+                  Language Processing, {EMNLP} 2024, Miami, FL, USA, November 12-16,
+                  2024},
+  pages        = {12750--12771},
+  publisher    = {Association for Computational Linguistics},
   year         = {2024},
-  url          = {https://doi.org/10.48550/arXiv.2407.21693},
-  doi          = {10.48550/ARXIV.2407.21693},
-  eprinttype    = {arXiv},
-  eprint       = {2407.21693},
-  timestamp    = {Wed, 21 Aug 2024 20:53:27 +0200},
-  biburl       = {https://dblp.org/rec/journals/corr/abs-2407-21693.bib},
+  url          = {https://aclanthology.org/2024.emnlp-main.710},
+  timestamp    = {Thu, 14 Nov 2024 17:20:55 +0100},
+  biburl       = {https://dblp.org/rec/conf/emnlp/ZhangHWLZDSDZYZ24.bib},
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 ```
