@@ -1,67 +1,168 @@
-# TransferTOD
-The code repository of paper "TransferTOD: A Generalizable Chinese Multi-Domain Task-Oriented Dialogue System with Transfer Capabilities"
+<h2 align="center">TransferTOD: A Generalizable Chinese Multi-Domain Task-Oriented Dialogue System with Transfer Capabilities</h2>
 
-**The paper has been accepted for EMNLP-2024(main)!**
+<p align="center">
+  <a href="https://arxiv.org/abs/2407.21693"><img src="https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge" alt="Paper"></a>
+  <a href="https://aclanthology.org/2024.emnlp-main.710/"><img src="https://img.shields.io/badge/Venue-EMNLP%202024%20Main-orange.svg?style=for-the-badge" alt="EMNLP 2024"></a>
+  <a href="https://www.modelscope.cn/models/Mee1ong/TransferTOD-7B"><img src="https://img.shields.io/badge/Model-ModelScope-purple.svg?style=for-the-badge" alt="Model"></a>
+</p>
 
-The model TransferTOD-7B can be accessed in https://www.modelscope.cn/models/Mee1ong/TransferTOD-7B
+> **Note:** For the Chinese version of this README, please refer to [README_zh.md](README_zh.md).
 
-arxiv: https://arxiv.org/abs/2407.21693
+## 🔔 News
 
-aclanthology: https://aclanthology.org/2024.emnlp-main.710.pdf
+- 🏆 **[2024-09]** Our paper has been accepted at **EMNLP 2024 (Main)**.
+- 🤖 **[2024-08]** **TransferTOD-7B** model released on [ModelScope](https://www.modelscope.cn/models/Mee1ong/TransferTOD-7B).
+- 🎉 **[2024-07]** Our paper is released on arXiv: [arXiv:2407.21693](https://arxiv.org/abs/2407.21693).
 
-## Data Info
-Overall statistics of TransferTOD dataset are as follows:
-| | Train | ID Test | OOD Test |
-| --- | --- | --- | --- |
-| #Domain | 27 | 27 | 3 |
-| #Slot | 188 | 188 | 27 |
-| #Dialogue | 4320 | 540 | 600 |
-| #Turns | 28680 | 3585 | 3700 |
-| #Slots/Dialogue | 10.3 | 10.3 | 9.7 |
-| #Tokens/Turn | 66.4 | 66.4 | 76.8 |
-> ID Test means In-Domain test and OOD Test means Out-of-Domain test. The domains of the test set are Water-Delivery, Sanitation, and Courier.
+## 📚 Overview
 
-## Guide
-All the data used in two-staged finetuning and the raw data of TransferTOD is included in directory `./data`. For each version, `train.json` is a mixed data of `train_slot.json` and equivalent amounts of `./data/raw_data/belle_data/belle_filtered_950k_train.jsonl`
+**TransferTOD** is a generalizable Chinese multi-domain Task-Oriented Dialogue (TOD) system with strong **transfer capabilities** to unseen domains. The dataset and the released **TransferTOD-7B** model are designed to handle real-world TOD use cases — slot filling, intent reasoning, and graceful out-of-domain generalization — within a unified framework.
 
-For full fine-tuning, run `./fine_tune/scripts/finetune_full.sh`, while for lora fine-tuning, run `./fine_tune/scripts/finetune_lora.sh`.
+The dataset spans **30 domains** (27 in-domain + 3 held-out OOD: *Water Delivery*, *Sanitation*, *Courier*), and is paired with a two-stage fine-tuning recipe that first injects general TOD ability and then sharpens transfer to specific deployments.
 
-For inference and evaluation with the TransferTOD test set, run `./inference/inference_and_eval.sh`.
+### ✨ Highlights
 
-## Citation
-If you find this project useful in your research, please cite:
+- 🌐 **30 domains** with **188 slot types** in total — one of the largest publicly available Chinese multi-domain TOD datasets
+- 💬 **35,965 turns** across **5,460 dialogues**, with separate **In-Domain** and **Out-of-Domain** test splits
+- 🤖 **TransferTOD-7B** model open-sourced on ModelScope, ready for downstream deployment
+- 🔁 **Two-stage fine-tuning recipe** balancing general dialogue ability with task-specific transfer
+- 🔬 Strong generalization to unseen domains (OOD test on Water Delivery, Sanitation, Courier)
+
+## 📊 Dataset Statistics
+
+<div align="center">
+
+| 📌 **Statistics**     | **Train** | **ID Test** | **OOD Test** |
+| --------------------- | --------: | ----------: | -----------: |
+| 🌐 # Domains          |        27 |          27 |            3 |
+| 🎯 # Slots            |       188 |         188 |           27 |
+| 💬 # Dialogues        |     4,320 |         540 |          600 |
+| 🔁 # Turns            |    28,680 |       3,585 |        3,700 |
+| 📦 # Slots / Dialogue |      10.3 |        10.3 |          9.7 |
+| 📏 # Tokens / Turn    |      66.4 |        66.4 |         76.8 |
+
+*Table: Overall statistics of the TransferTOD dataset.*
+
+> **ID Test** = In-Domain test set. **OOD Test** = Out-of-Domain test set, covering three held-out domains: *Water Delivery*, *Sanitation*, and *Courier*.
+
+</div>
+
+## 📂 Project Structure
+
 ```
-@inproceedings{DBLP:conf/emnlp/ZhangHWLZDSDZYZ24,
-  author       = {Ming Zhang and
-                  Caishuang Huang and
-                  Yilong Wu and
-                  Shichun Liu and
-                  Huiyuan Zheng and
-                  Yurui Dong and
-                  Yujiong Shen and
-                  Shihan Dou and
-                  Jun Zhao and
-                  Junjie Ye and
-                  Qi Zhang and
-                  Tao Gui and
-                  Xuanjing Huang},
-  editor       = {Yaser Al{-}Onaizan and
-                  Mohit Bansal and
-                  Yun{-}Nung Chen},
-  title        = {TransferTOD: {A} Generalizable Chinese Multi-Domain Task-Oriented
-                  Dialogue System with Transfer Capabilities},
-  booktitle    = {Proceedings of the 2024 Conference on Empirical Methods in Natural
-                  Language Processing, {EMNLP} 2024, Miami, FL, USA, November 12-16,
-                  2024},
-  pages        = {12750--12771},
-  publisher    = {Association for Computational Linguistics},
-  year         = {2024},
-  url          = {https://aclanthology.org/2024.emnlp-main.710},
-  timestamp    = {Thu, 14 Nov 2024 17:20:55 +0100},
-  biburl       = {https://dblp.org/rec/conf/emnlp/ZhangHWLZDSDZYZ24.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+TransferTOD/
+├── data/                                   # 📦 All TOD data
+│   ├── raw_data/                           # Raw collected data (incl. BELLE 950k)
+│   ├── fine_tune_1/                        # Stage-1 fine-tuning data
+│   ├── fine_tune_2/                        # Stage-2 fine-tuning data
+│   ├── data_generate_template.ipynb        # Data generation template
+│   ├── gpt_generate.ipynb                  # GPT-based data generation
+│   └── data_process.py                     # Data processing utilities
+├── fine_tune/                              # 🛠️ Training scripts
+│   ├── fine-tune.py                        # Main training entry
+│   ├── ds_config.json                      # DeepSpeed config
+│   └── scripts/                            # Full / LoRA fine-tuning launchers
+└── inference/                              # 🚀 Inference & evaluation
+    ├── inference.py                        # Run inference on the test sets
+    ├── eval.py                             # Compute evaluation metrics
+    ├── examples.json                       # Example prompts
+    └── inference_and_eval.sh               # End-to-end pipeline
+```
+
+## 🛠️ Usage Guide
+
+### 1. Prepare Data
+
+All data used in two-stage fine-tuning, along with the raw TransferTOD data, is provided under `data/`. For each stage, `train.json` is a mixture of:
+
+- `train_slot.json` — TOD-specific data, and
+- An equivalent amount of `data/raw_data/belle_data/belle_filtered_950k_train.jsonl` — general instruction data.
+
+This balanced mixture preserves general instruction-following ability while injecting strong TOD competence.
+
+### 2. Two-Stage Fine-tuning
+
+**Full fine-tuning:**
+
+```bash
+bash fine_tune/scripts/finetune_full.sh
+```
+
+**LoRA fine-tuning:**
+
+```bash
+bash fine_tune/scripts/finetune_lora.sh
+```
+
+Adjust `model_name_or_path`, `data_path`, and DeepSpeed settings in `ds_config.json` before launching.
+
+### 3. Inference & Evaluation
+
+End-to-end inference + evaluation on the TransferTOD test set:
+
+```bash
+bash inference/inference_and_eval.sh
+```
+
+This will:
+
+1. Run `inference.py` on the **ID** and **OOD** test sets.
+2. Run `eval.py` to compute slot-level and dialogue-level metrics.
+
+### 4. Use the Released Model
+
+The fine-tuned **TransferTOD-7B** is available on ModelScope:
+
+🤖 **[Mee1ong/TransferTOD-7B](https://www.modelscope.cn/models/Mee1ong/TransferTOD-7B)**
+
+```python
+from modelscope import AutoModelForCausalLM, AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("Mee1ong/TransferTOD-7B", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("Mee1ong/TransferTOD-7B", trust_remote_code=True)
+```
+
+## 📝 Citation
+
+If you find this project useful in your research, please cite us:
+
+```bibtex
+@inproceedings{zhang-etal-2024-transfertod,
+    title     = "{T}ransfer{TOD}: A Generalizable {C}hinese Multi-Domain Task-Oriented
+                 Dialogue System with Transfer Capabilities",
+    author    = "Zhang, Ming and Huang, Caishuang and Wu, Yilong and Liu, Shichun and
+                 Zheng, Huiyuan and Dong, Yurui and Shen, Yujiong and Dou, Shihan and
+                 Zhao, Jun and Ye, Junjie and Zhang, Qi and Gui, Tao and Huang, Xuanjing",
+    editor    = "Al-Onaizan, Yaser and Bansal, Mohit and Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural
+                 Language Processing",
+    month     = nov,
+    year      = "2024",
+    address   = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url       = "https://aclanthology.org/2024.emnlp-main.710/",
+    pages     = "12750--12771"
 }
 ```
 
-Contact Us:
-mingzhang23@m.fudan.edu.cn
+## 🔗 Related Projects
+
+| Project | Description | Link |
+|---------|-------------|------|
+| **PFDial** (ACL 2025) | Structured dialogue instruction tuning based on UML flowcharts | [GitHub](https://github.com/KongLongGeFDU/PFDial) |
+| **LLMEval-Med** (EMNLP 2025) | Real-world clinical benchmark for medical LLMs | [GitHub](https://github.com/llmeval/LLMEval-Med) |
+| **LLMEval-Fair** (ACL 2026) | Robust & fair evaluation, 200K+ questions | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
+
+## 📞 Contact Us
+
+For questions or collaboration, please:
+
+- Open an [Issue](https://github.com/KongLongGeFDU/TransferTOD/issues) on GitHub
+- Contact the project maintainers:
+  - **Ming Zhang**: mingzhang23@m.fudan.edu.cn
+
+---
+
+<p align="center">
+  <b>TransferTOD</b> | Fudan NLP Lab
+</p>
