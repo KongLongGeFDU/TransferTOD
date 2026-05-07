@@ -141,6 +141,7 @@ If you find this project useful in your research, please cite us:
     address   = "Miami, Florida, USA",
     publisher = "Association for Computational Linguistics",
     url       = "https://aclanthology.org/2024.emnlp-main.710/",
+    doi       = "10.18653/v1/2024.emnlp-main.710",
     pages     = "12750--12771"
 }
 ```
