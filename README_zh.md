@@ -3,6 +3,7 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2407.21693"><img src="https://img.shields.io/badge/论文-Arxiv-blue.svg?style=for-the-badge" alt="论文"></a>
   <a href="https://aclanthology.org/2024.emnlp-main.710/"><img src="https://img.shields.io/badge/会议-EMNLP%202024%20Main-orange.svg?style=for-the-badge" alt="EMNLP 2024"></a>
+  <a href="https://huggingface.co/datasets/konglongge/TransferTOD"><img src="https://img.shields.io/badge/数据集-HuggingFace-yellow.svg?style=for-the-badge" alt="数据集"></a>
   <a href="https://www.modelscope.cn/models/Mee1ong/TransferTOD-7B"><img src="https://img.shields.io/badge/模型-ModelScope-purple.svg?style=for-the-badge" alt="模型"></a>
 </p>
 
