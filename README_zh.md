@@ -81,6 +81,14 @@ TransferTOD/
 
 这种均衡混合可在保留通用指令遵循能力的同时，注入强 TOD 能力。
 
+也可以直接从 Hugging Face 下载公开数据：
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("konglongge/TransferTOD")
+```
+
 ### 2. 两阶段微调
 
 **全参微调：**

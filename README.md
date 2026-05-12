@@ -81,6 +81,14 @@ All data used in two-stage fine-tuning, along with the raw TransferTOD data, is 
 
 This balanced mixture preserves general instruction-following ability while injecting strong TOD competence.
 
+You can also download the released data from Hugging Face:
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("konglongge/TransferTOD")
+```
+
 ### 2. Two-Stage Fine-tuning
 
 **Full fine-tuning:**
